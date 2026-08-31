@@ -1,166 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Portfolio</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huiyi Yang</title>
+<meta name="description" content="Huiyi Yang — Computer Science student at NYU Shanghai. Computer vision and world modeling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fdfdfc;
+    --ink: #1a1a19;
+    --muted: #77746e;
+    --rule: #e4e2dd;
+    --measure: 34rem;
+  }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            background: #f8f9fa;
-            color: #333;
-        }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121211;
+      --ink: #e8e6e1;
+      --muted: #8e8b84;
+      --rule: #2a2a28;
+    }
+  }
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(45deg, #004d7a, #55d8d8);
-            color: white;
-        }
+  *, *::before, *::after { box-sizing: border-box; }
 
-        .hero h1 {
-            font-family: 'Space Mono', monospace;
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-        }
+  html { -webkit-text-size-adjust: 100%; }
 
-        /* About Section */
-        .about {
-            padding: 80px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        .about img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 3px solid #4ecdc4;
-        }
+  .page {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 7rem 1.75rem 6rem;
+  }
 
-        /* Projects Section */
-        .projects {
-            padding: 80px 20px;
-            background: #fff;
-        }
+  /* ---------- Header ---------- */
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+  .name {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin: 0 0 1.25rem;
+  }
 
-        .project-card {
-            padding: 20px;
-            border-radius: 10px;
-            background: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    font-size: 0.875rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
+  a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease;
+  }
 
-        /* Contact Section */
-        .contact {
-            padding: 80px 20px;
-            text-align: center;
-        }
+  a:hover { border-color: var(--ink); }
 
-        .social-icons a {
-            color: #333;
-            font-size: 24px;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
+  /* ---------- Sections ---------- */
 
-        .social-icons a:hover {
-            color: #4ecdc4;
-        }
+  section { margin-top: 4rem; }
 
-        /* Footer */
-        footer {
-            padding: 20px;
-            background: #333;
-            color: white;
-            text-align: center;
-        }
-    </style>
+  h2 {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  p { margin: 0 0 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ---------- Entries ---------- */
+
+  .entry { margin-bottom: 2rem; }
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+
+  .entry-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .entry-date {
+    font-size: 0.8125rem;
+    color: var(--muted);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .entry-body {
+    font-size: 0.9375rem;
+    margin: 0;
+  }
+
+  .entry-meta {
+    font-family: 'Newsreader', Georgia, serif;
+    font-style: italic;
+    color: var(--muted);
+    margin: 0.125rem 0 0.5rem;
+  }
+
+  @media (max-width: 480px) {
+    .page { padding: 4rem 1.25rem 3.5rem; }
+    .name { font-size: 2rem; }
+    .entry-head { flex-direction: column; gap: 0.125rem; }
+  }
+</style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Huiyi Noelia Yang</h1>
-        <p>Computer Science Major</p>
-        <p>hy2902@nyu.edu</p>
-    </section>
+<main class="page">
 
-    <!-- About Section -->
-    <section class="about">
-        <h2>About Me</h2>
-        <p>I’m a sophomore majoring in computer science at NYU Shanghai.</p>
-        <p>Passionate about Natural Language Processing.</p>
-    </section>
+  <header>
+    <h1 class="name">Huiyi Yang</h1>
+    <ul class="links">
+      <li><a href="mailto:hy2902@nyu.edu">hy2902@nyu.edu</a></li>
+      <li><a href="https://github.com/HuiyiNoeliaYang">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/huiyi-yang-2a1807297/">LinkedIn</a></li>
+    </ul>
+  </header>
 
-    <!-- Projects Section -->
-    <section class="projects">
-        <h2 style="text-align: center; margin-bottom: 40px;">My Work</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Chat System</h3>
-                <p>A Python-based chat system where users can send messages, read poems, and play mini-games.</p>
-                <br>
-                <p><b>Code:</b> https://github.com/HuiyiNoeliaYang/Chat-System-ICDS-Fall-24</p>
-                
-            </div>
-            <div class="project-card">
-                <h3>Bubbles’ Concert</h3>
-                <p>Built with Processing, Arduino and 3D Printing, this multimedia art installation explores the interplay between sound, visuals, and human emotions.</p>
-                <br>
-                <p><b>Documentation & Code:</b> https://wp.nyu.edu/nyushanghai-huiyiyang/2024/05/13/bubbles-concert-huiyi-noelia-yang-kaidi-katy-wang-gottfried-haider/</p>
-                
-            </div>
-            <div class="project-card">
-                <h3>Choco Quest</h3>
-                <p>Built with Arduino, the project integrates interactive storytelling with technology, creating an engaging, user-driven experience.</p>
-                <br>
-                <p><b>Documentation & Code:</b> https://wp.nyu.edu/nyushanghai-huiyiyang/2024/03/16/choco-quest-huiyi-noelia-yang-kaidi-katy-wang-gottfried-haider/</p>
-                
-            </div>
-        </div>
-    </section>
+  <section id="about">
+    <h2>About</h2>
+    <p>Huiyi is an undergraduate student in Computer Science at NYU Shanghai.
+    Her research interests lie in computer vision and world modeling.</p>
+  </section>
 
-    <!-- Contact Section -->
-    <section class="contact">
-        <h2>Get in Touch</h2>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/huiyi-yang-2a1807297/"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/HuiyiNoeliaYang"><i class="fab fa-github"></i></a>
-            <!-- <a href="hy2902@nyu.edu"><i class="far fa-envelope"></i></a> -->
-        </div>
-    </section>
+  <section id="education">
+    <h2>Education</h2>
 
-    <!-- Footer -->
-    <footer>
-        <p>🪼</p>
-    </footer>
+    <div class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">New York University Shanghai</h3>
+        <span class="entry-date">2023 &ndash; 2027</span>
+      </div>
+      <p class="entry-meta">B.S. in Computer Science</p>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>Research Experience</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">Undergraduate Research Assistant</h3>
+        <span class="entry-date">May 2026 &ndash; Present</span>
+      </div>
+      <p class="entry-meta"><a href="https://ai4ce.github.io/">AI4CE Lab</a>, New York University</p>
+      <!-- 补描述时替换这行： <p class="entry-body">...</p> -->
+    </div>
+  </section>
+
+</main>
 </body>
 </html>

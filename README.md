@@ -1,1 +1,3 @@
-# yang_huiyi_noelia.github.io
+# HuiyiNoeliaYang.github.io
+
+Personal site. Single static page — all markup and styles live in `index.html`.
