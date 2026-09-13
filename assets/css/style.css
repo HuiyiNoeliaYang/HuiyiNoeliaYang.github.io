@@ -1,0 +1,423 @@
+/* ---------- Tokens ---------- */
+
+:root {
+  --bg: #f4f7fc;
+  --surface: #ffffff;
+  --ink: #0f1e36;
+  --muted: #5b6b84;
+  --rule: #dce5f1;
+  --rule-strong: #c3d2e7;
+  --accent: #1f5fbf;
+  --accent-soft: #e7effb;
+  --on-accent: #ffffff;
+  --wide: 60rem;
+  --radius: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1322;
+    --surface: #101b2f;
+    --ink: #e4ebf5;
+    --muted: #8d9bb3;
+    --rule: #1c2a42;
+    --rule-strong: #2a3b58;
+    --accent: #7fb0ff;
+    --accent-soft: #16253f;
+    --on-accent: #0b1322;
+  }
+}
+
+/* ---------- Base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+a:hover { text-decoration-color: var(--accent); }
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+
+.muted { color: var(--muted); }
+
+.page {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 4.5rem 1.75rem 5rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+}
+
+/* ---------- Top bar ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.topbar-inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0.85rem 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.pills,
+.tabs {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pills { gap: 0.5rem; }
+
+.pill {
+  display: inline-block;
+  padding: 0.3rem 0.95rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+}
+
+.pill:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.tabs {
+  border: 1px solid var(--rule-strong);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.tabs li + li { border-left: 1px solid var(--rule-strong); }
+
+.tab {
+  display: block;
+  padding: 0.35rem 1.05rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.tab:hover {
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+
+.tab[aria-current="true"] {
+  color: var(--on-accent);
+  background: var(--accent);
+}
+
+/* ---------- Hero (About) ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(12rem, 17rem) 1fr;
+  gap: 3rem;
+  align-items: start;
+  scroll-margin-top: 6rem;
+}
+
+.portrait {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--accent-soft), var(--rule-strong));
+}
+
+.portrait img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portrait-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 3.5rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.name {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  margin: 0 0 1.75rem;
+}
+
+.about-card { padding: 1.75rem 2rem; }
+
+.card-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.875rem;
+}
+
+.facts {
+  margin: 1.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  gap: 0.625rem;
+  font-size: 0.9375rem;
+}
+
+.facts div {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1rem;
+}
+
+.facts dt {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  padding-top: 0.1rem;
+}
+
+.facts dd { margin: 0; }
+
+.facts .muted { white-space: nowrap; }
+
+/* ---------- Sections ---------- */
+
+.section {
+  margin-top: 5.5rem;
+  scroll-margin-top: 6rem;
+}
+
+.section-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 1.875rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ---------- Research entries ---------- */
+
+.entry {
+  padding: 1.5rem 1.75rem;
+  border-left: 3px solid var(--accent);
+}
+
+.entry + .entry { margin-top: 1rem; }
+
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+}
+
+.entry-title {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.entry-date {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.entry-meta {
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-size: 1.0625rem;
+  color: var(--muted);
+  margin: 0.125rem 0 0.5rem;
+}
+
+.entry-meta:last-child { margin-bottom: 0; }
+
+.entry-body {
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+/* ---------- Projects ---------- */
+
+.project-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.2s ease;
+}
+
+.project:hover { border-color: var(--rule-strong); }
+
+.project-title {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.project-meta {
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-size: 1.0625rem;
+  color: var(--muted);
+  margin: 0.125rem 0 0.875rem;
+}
+
+.project-points {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0 0 1.25rem;
+  padding-left: 1.1rem;
+  font-size: 0.9375rem;
+}
+
+.project-points li::marker { color: var(--accent); }
+
+.project-title + .project-points { margin-top: 0.75rem; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.125rem 0.6rem;
+  border-radius: 999px;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.project-link {
+  margin-top: auto;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.project-link:hover { text-decoration: underline; }
+
+/* ---------- Footer ---------- */
+
+.footer {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0 1.75rem 3rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.footer p {
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .portrait { max-width: 13rem; }
+}
+
+@media (max-width: 480px) {
+  .topbar-inner { padding: 0.75rem 1.25rem; }
+  .page { padding: 2.5rem 1.25rem 3.5rem; }
+  .footer { padding: 0 1.25rem 2.5rem; }
+  .footer p { padding-top: 1.5rem; }
+  .name { font-size: 2.4rem; }
+  .about-card { padding: 1.5rem 1.25rem; }
+  .facts div { grid-template-columns: 1fr; gap: 0; }
+  .entry,
+  .project { padding: 1.25rem; }
+  .entry-head { flex-direction: column; gap: 0.125rem; }
+}
