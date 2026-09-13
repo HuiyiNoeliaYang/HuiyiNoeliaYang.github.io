@@ -4,184 +4,114 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Huiyi Yang</title>
-<meta name="description" content="Huiyi Yang — Computer Science student at NYU Shanghai. Computer vision and world modeling.">
+<meta name="description" content="Huiyi Yang — Computer Science student at NYU Shanghai. 3D vision, real-to-sim reconstruction, world models, and robot perception.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #fdfdfc;
-    --ink: #1a1a19;
-    --muted: #77746e;
-    --rule: #e4e2dd;
-    --measure: 34rem;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #121211;
-      --ink: #e8e6e1;
-      --muted: #8e8b84;
-      --rule: #2a2a28;
-    }
-  }
-
-  *, *::before, *::after { box-sizing: border-box; }
-
-  html { -webkit-text-size-adjust: 100%; }
-
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 16px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .page {
-    max-width: var(--measure);
-    margin: 0 auto;
-    padding: 7rem 1.75rem 6rem;
-  }
-
-  /* ---------- Header ---------- */
-
-  .name {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 2.4rem;
-    font-weight: 400;
-    letter-spacing: -0.015em;
-    line-height: 1.15;
-    margin: 0 0 1.25rem;
-  }
-
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-    font-size: 0.875rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  a {
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 1px;
-    transition: border-color 0.2s ease;
-  }
-
-  a:hover { border-color: var(--ink); }
-
-  /* ---------- Sections ---------- */
-
-  section { margin-top: 4rem; }
-
-  h2 {
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 0 0 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  p { margin: 0 0 1rem; }
-  p:last-child { margin-bottom: 0; }
-
-  /* ---------- Entries ---------- */
-
-  .entry { margin-bottom: 2rem; }
-  .entry:last-child { margin-bottom: 0; }
-
-  .entry-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1.5rem;
-  }
-
-  .entry-title {
-    font-size: 1rem;
-    font-weight: 500;
-    margin: 0;
-  }
-
-  .entry-date {
-    font-size: 0.8125rem;
-    color: var(--muted);
-    white-space: nowrap;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .entry-body {
-    font-size: 0.9375rem;
-    margin: 0;
-  }
-
-  .entry-meta {
-    font-family: 'Newsreader', Georgia, serif;
-    font-style: italic;
-    color: var(--muted);
-    margin: 0.125rem 0 0.5rem;
-  }
-
-  @media (max-width: 480px) {
-    .page { padding: 4rem 1.25rem 3.5rem; }
-    .name { font-size: 2rem; }
-    .entry-head { flex-direction: column; gap: 0.125rem; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/main.js" defer></script>
 </head>
 <body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <ul class="pills" aria-label="Contact">
+      <li><a class="pill" href="mailto:hy2902@nyu.edu">Email</a></li>
+      <li><a class="pill" href="https://www.linkedin.com/in/huiyi-yang-2a1807297/">LinkedIn</a></li>
+      <li><a class="pill" href="https://github.com/HuiyiNoeliaYang">GitHub</a></li>
+    </ul>
+    <nav aria-label="Sections">
+      <ul class="tabs">
+        <li><a class="tab" href="#about">About</a></li>
+        <li><a class="tab" href="#research">Research</a></li>
+        <li><a class="tab" href="#projects">Projects</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 <main class="page">
 
-  <header>
-    <h1 class="name">Huiyi Yang</h1>
-    <ul class="links">
-      <li><a href="mailto:hy2902@nyu.edu">hy2902@nyu.edu</a></li>
-      <li><a href="https://github.com/HuiyiNoeliaYang">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/huiyi-yang-2a1807297/">LinkedIn</a></li>
-    </ul>
-  </header>
+  <!-- ---------- About ---------- -->
+  <section id="about" class="hero">
+    <figure class="portrait">
+      <span class="portrait-fallback" aria-hidden="true">HY</span>
+      <!-- 放照片：把图片存为 assets/img/profile.jpg 即可 -->
+      <img src="assets/img/profile.jpg" alt="Portrait of Huiyi Yang">
+    </figure>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>Huiyi is an undergraduate student in Computer Science at NYU Shanghai.
-    Her research interests lie in computer vision and world modeling.</p>
-  </section>
+    <div class="hero-text">
+      <h1 class="name">Huiyi Yang</h1>
+      <p class="tagline">Computer Science &middot; NYU Shanghai</p>
 
-  <section id="education">
-    <h2>Education</h2>
+      <div class="card about-card">
+        <h2 class="card-label">About me</h2>
+        <p>I&rsquo;m a senior in CS at NYU Shanghai, working with Prof. Chen Feng at the
+        <a href="https://ai4ce.github.io/">AI4CE Lab</a>, and applying for Fall 2027 PhD and MS programs.</p>
+        <p>I work on turning captured reality into 3D worlds that can move.</p>
 
-    <div class="entry">
-      <div class="entry-head">
-        <h3 class="entry-title">New York University Shanghai</h3>
-        <span class="entry-date">2023 &ndash; 2027</span>
+        <dl class="facts">
+          <div>
+            <dt>Education</dt>
+            <dd>B.S. in Computer Science, New York University Shanghai <span class="muted">2023 &ndash; 2027</span></dd>
+          </div>
+          <div>
+            <dt>Interests</dt>
+            <dd>3D vision, real-to-sim reconstruction, world models, robot perception</dd>
+          </div>
+        </dl>
       </div>
-      <p class="entry-meta">B.S. in Computer Science</p>
     </div>
   </section>
 
-  <section id="research">
-    <h2>Research Experience</h2>
+  <!-- ---------- Research ---------- -->
+  <section id="research" class="section">
+    <h2 class="section-title">Research</h2>
 
-    <div class="entry">
+    <article class="card entry">
       <div class="entry-head">
         <h3 class="entry-title">Undergraduate Research Assistant</h3>
         <span class="entry-date">May 2026 &ndash; Present</span>
       </div>
       <p class="entry-meta"><a href="https://ai4ce.github.io/">AI4CE Lab</a>, New York University</p>
       <!-- 补描述时替换这行： <p class="entry-body">...</p> -->
+    </article>
+  </section>
+
+  <!-- ---------- Projects ---------- -->
+  <section id="projects" class="section">
+    <h2 class="section-title">Projects</h2>
+
+    <!-- 加项目：复制一个 <article class="card project">，project-link 可选 -->
+    <div class="project-list">
+      <article class="card project">
+        <h3 class="project-title">Autonomous Visual Navigation in a Textured 3D Maze</h3>
+        <p class="project-meta">NYU ROB-UY 3203 Robot Vision, Final Challenge &middot; Team of 3</p>
+        <ul class="project-points">
+          <li>Built a vision-only image-goal navigation system over 17,697 exploration frames: replaced the SIFT/VLAD baseline with ResNet-18 embeddings and 4-view goal matching, built a ~2.5K-node topological graph with loop closures, and implemented a state-machine controller with re-localization, aliasing rejection, automatic recovery, and human-in-the-loop loop-closure annotation.</li>
+          <li>Replaced drift-prone dead reckoning with a monocular SLAM pipeline (Depth Anything V2 pseudo-depth &rarr; PlanarSLAM RGB-D keyframe trajectory), producing an accurate real-time map overlay of current node, goal, and planned path.</li>
+        </ul>
+        <ul class="tags"><li>Python</li><li>PyTorch</li><li>OpenCV</li><li>NetworkX</li></ul>
+      </article>
+
+      <article class="card project">
+        <h3 class="project-title">Moved-Object Detection with DETR</h3>
+        <p class="project-meta">NYU CSCI-UA 480 Computer Vision, Fall 2025 &middot; Individual project</p>
+        <ul class="project-points">
+          <li>Fine-tuned DETR to detect and localize objects that moved between consecutive surveillance frames, feeding pixel-wise frame differences into the model and training on motion-only annotations built from the VIRAT dataset.</li>
+          <li>Compared four fine-tuning regimes (full model, backbone only, transformer only, detection head only) and built an evaluation pipeline reporting per-class precision, recall, and F1 at IoU &ge; 0.5, with qualitative prediction visualizations.</li>
+        </ul>
+        <ul class="tags"><li>Python</li><li>PyTorch</li><li>Hugging Face Transformers</li></ul>
+        <a class="project-link" href="https://github.com/HuiyiNoeliaYang/moved-object-detection-detr">Code &rarr;</a>
+      </article>
     </div>
   </section>
 
 </main>
+
+<footer class="footer">
+  <p>&copy; 2026 Huiyi Yang</p>
+</footer>
+
 </body>
 </html>
